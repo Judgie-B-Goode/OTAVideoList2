@@ -73,10 +73,13 @@ def otavgetplaylist(endpoint):
             else:
                 clipname.append(x["filename"])
             clipindex += 1
-            if 'is_disabled' in x and x['is_disabled']:
-                isdisabled.append('disabled')
-            else:
-                isdisabled.append('enabled')
+            try:
+                if 'is_disabled' in x and x['is_disabled']:
+                    isdisabled.append('disabled')
+                else:
+                    isdisabled.append('enabled')
+            except:
+                pass
 
             if "remaining_time_until_next_live" in currentplaybackjson:
                 updatetime = currentplaybackjson["remaining_time_until_next_live"]
