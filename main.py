@@ -84,7 +84,11 @@ def playlistitems():
             if int(playlist[9][clipindex]) > int(elapsed) and lives <1:
                 nextlive = int(playlist[9][clipindex]) - int(elapsed)
                 lives+=1
-
+        if "LIVE" in playlist[2][clipindex] and playlist[1][clipindex] != 3:
+            playlist[1][clipindex] = 4
+            if int(playlist[9][clipindex]) > int(elapsed) and lives <1:
+                nextlive = int(playlist[9][clipindex]) - int(elapsed)
+                lives+=1
 
 
 
